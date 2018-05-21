@@ -7,6 +7,7 @@ FROM ${DOCKER_REGISTRY}/${DOCKER_REPO}/${FROM_IMG_NAME}:${FROM_IMG_TAG}${DOCKER_
 
 ARG EB_PKG=Bazel-0.11.1-GCCcore-6.4.0.eb
 USER root
+RUN apt-get install -y zip
 USER user
 RUN eb --dry-run-short ${EB_PKG} --robot \
  && eb ${EB_PKG} --robot
